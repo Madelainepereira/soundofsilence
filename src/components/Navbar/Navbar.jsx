@@ -1,15 +1,10 @@
 import './Navbar.css';
+import logo from '../../assets/logo.png';
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar-content">
-        <div className="navbar-title">
-          <span className="bold">Sound of</span>
-          <br />
-          <span>Silence</span>
-        </div>
-      </div>
+        <img src={logo} alt="Logo" />
     </nav>
   );
 }
