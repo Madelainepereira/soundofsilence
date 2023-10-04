@@ -1,12 +1,12 @@
 import './Body.css'
-import descarga from '../../assets/descarga.png';
+import cat from '../../assets/cat.jpg';
 
 function Body () {
 	return (
 		<>
 			<div className='pictogram'>
-				<img className='pictogramImage' src={descarga} alt="descargaP" />
-				<p className='bodyText'>Título pictograma</p>
+				<img className='pictogramImage' src={cat} alt="catP" />
+				<p className='bodyText'>CAT</p>
 			</div>
 		</>
 	)
