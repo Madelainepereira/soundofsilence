@@ -1,12 +1,13 @@
 import './App.css'
-import Button from '../src/components/Button/Button'
+import Navbar from './components/Navbar/Navbar';
+import Button from './components/Button/Button';
 
 function App() {
   
 
   return (
     <>
-    <Button/>
+      <Navbar/>    <Button/>
     </>
 
     
