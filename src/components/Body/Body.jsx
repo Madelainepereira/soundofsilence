@@ -5,7 +5,7 @@ function Body () {
 	return (
 		<>
 			<div className='pictogram'>
-				<img className='pictogramImage' src={cat} alt="catP" />
+				<img className='pictogramImage' src={cat} alt="cat image" />
 				<p className='bodyText'>CAT</p>
 			</div>
 		</>
