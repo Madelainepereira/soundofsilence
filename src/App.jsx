@@ -10,6 +10,11 @@ function App() {
       <Navbar/>
       <Body/>  
     </>
+
+    
+
+        
+    
   )
 }
 
