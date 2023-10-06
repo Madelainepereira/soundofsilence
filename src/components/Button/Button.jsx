@@ -10,10 +10,7 @@ function Button(){
                 <img src={oreja}/>
             </button>
         </>
-       
     );
 }
 
-
-
-export default Button
+export default Button;
