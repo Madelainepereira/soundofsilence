@@ -1,7 +1,7 @@
 .button{
     border-radius: 8px;
     background: #404040;
-    width: 100%;
+    width: 23rem;
     display: flex;
     height: 64px;
     justify-content: center;
@@ -14,5 +14,5 @@
 }
 
 .button:hover{
-    background:#BFBFBF
+    background:#BFBFBF;
 }

@@ -1,13 +1,18 @@
 import './Body.css'
-import cat from '../../assets/cat.jpg';
+//import cat from '../../assets/cat.jpg';
+import picto from '../../assets/Image_def.png'
+import Button from '../Button/Button';
 
 function Body () {
 	return (
 		<>
-			<div className='pictogram'>
-				<img className='pictogramImage' src={cat} alt="cat image" />
-				<p className='bodyText'>CAT</p>
-			</div>
+			<main className='main'>
+				<div className='pictogram'>
+					<img className='pictogramImage' src={picto} alt="cat image" />
+					<p className='bodyText'><strong>Título pictograma</strong></p>
+				</div>
+				<Button />
+			</main>
 		</>
 	)
 }
