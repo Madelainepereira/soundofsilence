@@ -1,15 +1,25 @@
 import './Body.css'
 import cat from '../../assets/cat.jpg';
+import PropTypes from 'prop-types';
 
-function Body () {
+
+function Body ({capturingSound}) {
+	
 	return (
 		<>
 			<div className='pictogram'>
-				<img className='pictogramImage' src={cat} alt="cat image" />
-				<p className='bodyText'>CAT</p>
+				{capturingSound
+					? <p className='bodyText'>Capturando sonido</p>
+					: <img className='pictogramImage' src={cat} alt="cat image" />
+				}
+				
 			</div>
 		</>
 	)
 }
+
+Body.propTypes = {
+    capturingSound: PropTypes.bool.isRequired, // Define propTypes para capturingSound
+};
 
 export default Body;
