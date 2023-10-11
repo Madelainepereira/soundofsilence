@@ -1,10 +1,13 @@
-import Footer from '../components/Footer';
+import Footer from '../../components/Footer/Footer';
+import './Homelayout.css' 
 
 const HomeLayout = () => {
   return (
-    <div>
-      <Footer />
-    </div>
+    <>
+    <div className='nav'></div>
+    
+    <Footer />
+    </>
   );
 }
 
