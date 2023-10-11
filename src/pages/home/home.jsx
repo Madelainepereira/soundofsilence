@@ -1,13 +1,15 @@
-import Button2 from './Button2';
+import Button2 from '../../components/Button2/Button2';
 import logo from '../../assets/logo.png'; 
+import './home.css'
 
 const Home = () => {
 
   return (
-    <div>
-      <img src={logo} alt="Image sound of silence" />
-      <Button2 text="Botón 1" />
-      <Button2 text="Botón 2" />
+    <div className='home'> 
+      <div className='homeimage'><img className='logohome' src={logo} alt="Image sound of silence" /></div>
+      
+      <Button2 text="Login" />
+      <Button2 text="Sign Up" />
     </div>
   );
 }

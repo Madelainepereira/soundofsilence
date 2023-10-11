@@ -1,0 +1,16 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.homeimage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logohome{
+    height: 90px;
+    width: 90px;
+}
