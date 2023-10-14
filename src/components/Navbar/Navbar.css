@@ -2,9 +2,6 @@
   background-color: #D5D2F6;
   padding: 10px;
   text-align: center;
-  width: 375px;
-	height: 64px;
-
+  width: 100%;
+  min-height: 10vh;
 }
-
-

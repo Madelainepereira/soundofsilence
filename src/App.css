@@ -4,3 +4,7 @@
   margin: 0;
 }
 
+article
+{
+  min-height: 80vh;
+}
