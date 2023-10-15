@@ -4,7 +4,7 @@
 	background-color: #E4E2F9;
 	color: #183153;
 	text-align: center;
-	padding: 20px;
+	padding: 30px;
 }
 
 .registrationForm
@@ -47,7 +47,8 @@
 	background-color: #183153;
 	color: #E4E2F9;
 	border-radius: 8px;
-	width: 128px;
-    height: 24px;
+	width: 140px;
+    height: 25px;
 	margin: 20px;
+	cursor: pointer;
 }
