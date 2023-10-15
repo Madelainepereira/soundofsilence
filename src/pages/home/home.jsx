@@ -1,15 +1,19 @@
-import Button2 from '../../components/Button2/Button2';
-import logo from '../../assets/logo.png'; 
 import './home.css'
-import HomeLayout from '../../layouts/Homelayout/Homelayout';
+import Logohome from'../../assets/Logohome.png'
+import Button2 from '../../components/Button2/Button2';
+//import HomeLayout from '../../layouts/Homelayout/Homelayout';
 
 const Home = () => {
 
   return (
           <>
-          <div className='homeimage'><img className='logohome' src={logo} alt="Image sound of silence" /></div>  
-          <Button2 text="Login" />
-          <Button2 text="Sign Up" />      
+          <div className='overheadSpace'></div>
+          <main className='contentHome'>
+            <div className='homeimage'><img className='logohome' src={Logohome} alt="Image sound of silence" /></div>  
+            <Button2 text="Login" />
+            <Button2 text="Sign Up" />    
+          </main>  
+          <div className='spaceBelow'></div>
           </>
   );
 }
