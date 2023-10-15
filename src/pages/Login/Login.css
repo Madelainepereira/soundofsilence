@@ -1,9 +1,10 @@
 .login-container
+/*div del Login completo*/
 {
 	display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .welcomeTextLogin
@@ -12,7 +13,7 @@
 	background-color: #E4E2F9;
 	color: #183153;
 	text-align: center;
-	padding: 20px;
+	margin-bottom: 25px;
 }
 
 .loginForm
@@ -58,4 +59,5 @@
 	width: 140px;
     height: 35px;
 	margin: 20px;
+	cursor: pointer;
 }
