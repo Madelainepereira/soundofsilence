@@ -1,15 +1,27 @@
 .Button2 {
-    background-color: #E4E2F9;
-    border: 1px solid #191919;
-    color: #191919;
-    padding: 10px 20px;
-    font-size: 16px;
+    background-color: #E7E5F9;
+    border: 3px solid #183153;
+    border-radius: 8px;
+    color: #183153;
+    /*padding: 10px 20px;*/
+    font-size: 18px;
     cursor: pointer;
-    margin: 30px;
-    border-radius: 5px;
+    margin: 10px;
+    width: 276px;
+    height: 50px;
+  }
+
+  .contentHome
+  {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 26vh;
   }
   
   .Button2:hover {
-    background-color: #191919;
-    color: #E4E2F9;
+    background-color: #183153;
+    color: #E7E5F9;
   }
+
+  
