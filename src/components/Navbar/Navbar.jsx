@@ -1,11 +1,11 @@
 import './Navbar.css';
-import Logohome from '../../assets/Logohome.png';
+import logo from '../../assets/logo.svg';
 
 
 function Navbar() {
   return (
     <nav className="navbar">
-        <img className='navbarLogo' src={Logohome} alt="Logo" />
+        <img className='navbarLogo' src={logo} alt="Logo" />
     </nav>
   );
 }
