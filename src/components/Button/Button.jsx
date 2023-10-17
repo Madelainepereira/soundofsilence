@@ -65,14 +65,15 @@ function Button ()
 
     return (
         <> 
-            <button className='button' onClick={mediaRecorder && mediaRecorder.state === 'recording' ? stopRecording : startRecording}>
-                {mediaRecorder && mediaRecorder.state === 'recording' ? 'Detener grabación' : 'Pulsar para grabar'}
+            <div className='buttonsBody'>
+            <button className='recordButton' onClick={mediaRecorder && mediaRecorder.state === 'recording' ? stopRecording : startRecording}>
+                {mediaRecorder && mediaRecorder.state === 'recording' ? 'DETENER GRABACIÓN' : 'PULSAR PARA GRABAR'}
                 <img src={recorder} alt='Icon recorder'/>
             </button>
-
-            <button className='play' onClick={playAudio} disabled={!audioUrl}>
+            <button className='playButton' onClick={playAudio} disabled={!audioUrl}>
                 Reproducir grabación
             </button>
+            </div>
         </>
     );
 }
