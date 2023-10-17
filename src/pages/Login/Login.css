@@ -16,6 +16,18 @@
 	margin-bottom: 25px;
 }
 
+.greetingLogin
+{
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.textLogin
+{
+	font-weight: 500;
+    font-size: 13px;
+}
+
 .loginForm
 /*Formulario de registro*/
 {
@@ -34,8 +46,9 @@
 .identifierLogin
 /*label*/
 {
-	color:#183153;
-	font-size: 16px;
+	color: #183153;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .dataLogin
