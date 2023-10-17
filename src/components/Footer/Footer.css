@@ -1,14 +1,10 @@
 .footer {
     background-color: #183153;
     padding: 10px;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    color: #E4E2F9;
     gap: 20px;
+    font-size: 14px;
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     min-height: 10vh;
