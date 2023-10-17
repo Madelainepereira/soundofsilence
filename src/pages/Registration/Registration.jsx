@@ -25,8 +25,8 @@ function Registration () {
 	return(
 		<>
 			<div className='welcomeText'>
-				<h1>Bienvenid@</h1>
-				<h4>Ingresa los siguientes datos y crea tu cuenta</h4>
+				<h1 className='greetingRegistration'>Bienvenid@</h1>
+				<h4 className='textRegistration'>Ingresa los siguientes datos y crea tu cuenta</h4>
 			</div>
 		<form className='registrationForm' onSubmit={handleSubmit}>
     <div className='formGroup'>

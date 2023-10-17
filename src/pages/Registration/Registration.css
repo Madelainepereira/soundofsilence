@@ -1,10 +1,22 @@
 .welcomeText
 /*Bienvenid@*/
 {
-	background-color: #E4E2F9;
 	color: #183153;
 	text-align: center;
-	padding: 30px;
+	margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.greetingRegistration
+{
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.textRegistration
+{
+	font-weight: 500;
+    font-size: 13px;
 }
 
 .registrationForm
@@ -27,6 +39,8 @@
 /*label*/
 {
 	color:#183153;
+	font-size: 12px;
+	font-weight: 500;
 }
 	
 .registrationBox
