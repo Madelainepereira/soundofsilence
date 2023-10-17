@@ -1,0 +1,18 @@
+.text
+{
+	color: #183153;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.greetingTextUser
+{
+	font-size: 40px;
+}
+
+.textUser
+{
+	font-size: 15px;
+    font-weight: 500;
+}
+
