@@ -1,0 +1,16 @@
+.labelCard
+{
+	background-color: #F3F2FC;
+	border-radius: 8px;
+	width: 330px ;
+	height: 64px ;
+	box-shadow:5px 5px 7px #D5D2F6;
+	cursor: pointer;
+	margin: 10px;
+}
+
+.Cards
+{
+	display: flex;
+	flex-direction: column;
+}

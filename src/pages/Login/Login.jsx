@@ -22,8 +22,8 @@ function Login()
 		<>
 			<main className='login-container'>
 			<div className='welcomeTextLogin'>
-				<h1>Bienvenid@</h1>
-				<h4>Escribe tu correo para ingresar</h4>
+				<h1 className='greetingLogin'>Bienvenid@</h1>
+				<h4 className='textLogin'>Escribe tu correo para ingresar</h4>
 			</div>
 			<form className='loginForm' onSubmit={handleSubmit}>
         <div className='registrationLogin'>

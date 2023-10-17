@@ -11,6 +11,14 @@
 }
 
 .logohome{
-    height: 90px;
-    width: 90px;
+    width: 134px;
+    margin: 30px;
+}
+
+.overheadSpace{
+    min-height: 13vh;
+}
+
+.spaceBelow{
+    min-height: 20vh;
 }
