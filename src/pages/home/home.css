@@ -12,6 +12,7 @@
 
 .logohome{
     width: 134px;
+    margin: 30px;
 }
 
 .overheadSpace{
@@ -19,5 +20,5 @@
 }
 
 .spaceBelow{
-    min-height: 26vh;
+    min-height: 20vh;
 }
