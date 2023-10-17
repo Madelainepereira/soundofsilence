@@ -1,0 +1,15 @@
+.main
+{
+	min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	align-items: center;
+}
+
+.processingText
+{
+	display: flex;
+	font-size: 15px;
+    font-weight: 600;
+}
