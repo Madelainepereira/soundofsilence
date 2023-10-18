@@ -5,9 +5,10 @@ import Button from '../../components/Button/Button'
 function LabelResults() {
 	return(
 		<>
-			<Card />
-
-			<Button />
+			<main className='main'>
+				<Card />
+				<Button />
+			</main>
 		</>
 	)
 }
