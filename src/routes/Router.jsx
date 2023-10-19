@@ -19,7 +19,7 @@ const RouterItem = () => {
                 <Route path='/Login' element={<Login/>}></Route>
                 <Route path='/AudioProcess' element={<AudioProcess/>}></Route>
                 <Route path='/History' element={<History/>}></Route>
-                <Route path='/Home' element={<Home/>}></Route>
+                <Route path='/:user?' element={<Home/>}></Route>
                 <Route path='/LabelResults' element={<LabelResults/>}></Route>
                 <Route path='/Registration' element={<Registration/>}></Route>
                 <Route path='/UserView' element={<UserView/>}></Route>

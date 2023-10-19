@@ -5,9 +5,11 @@ import Button from '../../components/Button/Button'
 function LabelResults() {
 	return(
 		<>
-			<Card />
-
-			<Button />
+			<main className='main'>
+				<div className='emptyBoxLR'></div>
+				<Card />
+				<Button />
+			</main>
 		</>
 	)
 }
