@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from 'react';
 import './Login.css';
 
@@ -46,7 +47,9 @@ function Login()
             required
           />
         </div>
-        <button className='loginButton' type='submit'>Iniciar sesión</button>
+		<Link to={"/true"} >
+			<button className='loginButton' type='submit'>Iniciar sesión</button>
+		</Link>
       </form>
 		</main>
 		</>
