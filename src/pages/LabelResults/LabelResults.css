@@ -1,0 +1,10 @@
+.main
+{
+	flex-direction: column;
+	align-items: center;
+}
+
+.emptyBoxLR
+{
+	height: 130px;
+}

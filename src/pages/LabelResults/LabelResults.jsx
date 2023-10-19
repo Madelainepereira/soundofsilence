@@ -6,6 +6,7 @@ function LabelResults() {
 	return(
 		<>
 			<main className='main'>
+				<div className='emptyBoxLR'></div>
 				<Card />
 				<Button />
 			</main>
