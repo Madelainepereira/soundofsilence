@@ -2,6 +2,7 @@ import './LabelResults.css'
 import Card from '../../components/Card/Card'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import BackButton from '../../components/BackButton/BackButton';
 
 
 function LabelResults() {
@@ -27,6 +28,8 @@ fetchPredictions();
 	}, [audioId]);
 
 	return (
+		<>
+		<BackButton path='/'></BackButton>
 		<section className='results-container'>
 			<div className='results'>
 			<ul>
@@ -40,7 +43,7 @@ fetchPredictions();
 			</ul>
 			</div>
 		</section>
-
+		</>
 	);
 }
 export default LabelResults;
