@@ -101,9 +101,9 @@ import { useState } from 'react';
 
 function Registration() {
   const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    username: '',
+    name: '',
+    last_name: '',
+    user_name: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -111,6 +111,7 @@ function Registration() {
 
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -125,31 +126,35 @@ function Registration() {
       return;
     }
 
-    // Crear un objeto FormData para enviar los datos del formulario
+    const userJSON = JSON.stringify({
+      name: formData.name,
+      last_name: formData.last_name,
+      user_name: formData.user_name,
+      email: formData.email,
+      password: formData.password
+    });
+
     const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.nombre);
-    formDataToSend.append('apellido', formData.apellido);
-    formDataToSend.append('username', formData.username);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('password', formData.password);
+    formDataToSend.append('user', userJSON);
+
+    if (profileImage) {
+        formDataToSend.append('profile_image', profileImage);
+    }
 
     try {
-      const response = await fetch('/register', {
+      const response = await fetch('http://localhost:8000/register', {
         method: 'POST',
         body: formDataToSend,
       });
 
       if (response.ok) {
-        // Registro exitoso, mostrar mensaje y redirigir al usuario
         setSuccess(true);
         setError(null);
       } else {
-        // Error del servidor, mostrar mensaje de error
         setError('Error en el registro');
         setSuccess(false);
       }
     } catch (error) {
-      // Error de red u otros errores
       setError('Error de red');
       setSuccess(false);
     }
@@ -169,8 +174,8 @@ function Registration() {
           <input
             className='registrationBox'
             type='text'
-            name='nombre'
-            value={formData.nombre}
+            name='name'
+            value={formData.name}
             onChange={handleChange}
             required
           />
@@ -180,8 +185,8 @@ function Registration() {
           <input
             className='registrationBox'
             type='text'
-            name='apellido'
-            value={formData.apellido}
+            name='last_name'
+            value={formData.last_name}
             onChange={handleChange}
             required
           />
@@ -191,8 +196,8 @@ function Registration() {
           <input
             className='registrationBox'
             type='text'
-            name='username'
-            value={formData.username}
+            name='user_name'
+            value={formData.user_name}
             onChange={handleChange}
             required
           />
@@ -230,6 +235,14 @@ function Registration() {
             required
           />
         </div>
+        <div className='formGroup'>
+          <label className='identifier'>Foto de perfil</label>
+          <input
+            type='file'
+            onChange={(e) => setProfileImage(e.target.files[0])}
+            required
+        />
+        </div>
         <button className='registrationButton' type='submit'>
           Registrar
         </button>
@@ -239,3 +252,4 @@ function Registration() {
 }
 
 export default Registration;
+
