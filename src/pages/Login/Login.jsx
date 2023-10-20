@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login() 
@@ -8,51 +8,80 @@ function Login()
 		username: '',
 		password: '',
 	});
+  
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 	
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setFormData({ ...formData, [name]: value });
 	};
 	
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		// Aquí se puede agregar la lógica para manejar los datos del formulario (autenticación, etc.)
+	const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await fetch('http://localhost:8000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_name: formData.username,
+                password: formData.password
+            })
+        });
+
+        if (response.ok) {
+            setError(null); // limpiar cualquier error previo.
+            navigate("/true");
+
+        } else {
+            const data = await response.json();
+            setError(data.detail); // error -> respuesta servidor
+        }
+    } catch (err) {
+        setError('Error de red o el servidor no está disponible'); // error -> problemas de red
+    }
 	};
 	
 	return(
 		<>
 			<main className='login-container'>
-			<div className='welcomeTextLogin'>
-				<h1 className='greetingLogin'>Bienvenid@</h1>
-				<h4 className='textLogin'>Escribe tu correo para ingresar</h4>
-			</div>
-			<form className='loginForm' onSubmit={handleSubmit}>
-        <div className='registrationLogin'>
-          <label className='identifierLogin'>Nombre de usuario</label>
-          <input className='dataLogin'
-            type='text'
-            name='username'
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className='registrationLogin'>
-          <label className='identifierLogin'>Contraseña</label>
-          <input className='dataLogin'
-            type='password'
-            name='password'
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-		<Link to={"/true"} >
+				<div className='welcomeTextLogin'>
+					<h1 className='greetingLogin'>Bienvenid@</h1>
+					<h4 className='textLogin'>Escribe tu correo para ingresar</h4>
+				</div>
+      
+        {error && <div className="error-message">{error}</div>}
+			
+        <form className='loginForm' onSubmit={handleSubmit}>
+            <div className='registrationLogin'>
+              <label className='identifierLogin'>Nombre de usuario</label>
+              <input className='dataLogin'
+                type='text'
+                name='username'
+                value={formData.username}
+                onChange={handleChange}
+                required
+                autoComplete="current-password"
+              />
+            </div>
+            <div className='registrationLogin'>
+              <label className='identifierLogin'>Contraseña</label>
+              <input className='dataLogin'
+                type='password'
+                name='password'
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 			<button className='loginButton' type='submit'>Iniciar sesión</button>
-		</Link>
-      </form>
-		</main>
+        </form>
+			</main>
 		</>
 	)
 }
+
 export default Login;
