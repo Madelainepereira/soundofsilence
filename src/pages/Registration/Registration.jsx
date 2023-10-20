@@ -238,13 +238,19 @@ function Registration() {
           />
         </div>
         <div className='formGroup'>
-          <label className='identifier'>Foto de perfil</label>
-          <input
-            type='file'
-            onChange={(e) => setProfileImage(e.target.files[0])}
-            required
-        />
-        </div>
+  <label className='identifier'>Foto de perfil</label>
+  <label htmlFor='fileInput' className='registrationBox' id='regis'>
+    Elegir archivo
+  </label>
+  <input
+    id='fileInput'
+    type='file'
+    onChange={(e) => setProfileImage(e.target.files[0])}
+    required
+    style={{ display: 'none' }} 
+  />
+</div>
+       
         <button className='registrationButton' type='submit'>
           Registrar
         </button>
