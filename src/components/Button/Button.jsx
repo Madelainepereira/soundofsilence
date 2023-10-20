@@ -39,7 +39,8 @@ function Button() {
 
                     if (response.ok) {
                         let data = await response.json();
-                        navigate("/results")
+                        let audioID = data.id;
+                        navigate(`/LabelResults/${audioID}`); //pasamos el id del audio al componente LabelResults
                         console.log("Audio enviado para analizar:", data);
                     } else {
                         console.error("Error al enviar el audio:", await response.text());

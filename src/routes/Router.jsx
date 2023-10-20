@@ -10,7 +10,6 @@ import UserView from '../pages/UserView/UserView'
 
 
 
-
 const RouterItem = () => {
     return(
         <BrowserRouter>
@@ -20,7 +19,8 @@ const RouterItem = () => {
                 <Route path='/AudioProcess' element={<AudioProcess/>}></Route>
                 <Route path='/History' element={<History/>}></Route>
                 <Route path='/:user?' element={<Home/>}></Route>
-                <Route path='/LabelResults' element={<LabelResults/>}></Route>
+                {/* <Route path='/LabelResults' element={<LabelResults/>}></Route> */}
+                <Route path='/LabelResults/:audioId' element={<LabelResults />} />
                 <Route path='/Registration' element={<Registration/>}></Route>
                 <Route path='/UserView' element={<UserView/>}></Route>
                 </Route>
