@@ -18,6 +18,7 @@ import './LabelResults.css'
 import Card from '../../components/Card/Card'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import BackButton from '../../components/BackButton/BackButton';
 
 
 function LabelResults() {
@@ -43,15 +44,17 @@ fetchPredictions();
 	}, [audioId]);
 
 	return (
-<main className='main'>
+		<>
+		<BackButton path='/'></BackButton>
+	<main className='main'>
     <div className='emptyBoxLR'></div>
-    <Card>
+    <Card className='cardResults'>
         {results.map((result, index) => (
             <p key={index}>{`Etiqueta: ${result.label}, Puntuación: ${result.confidence.toFixed(2)}`}</p>
         ))}
     </Card>
 </main>
-
+</>
 
 	);
 }

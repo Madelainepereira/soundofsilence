@@ -1,9 +1,12 @@
 import './History.css'
 import HistoryCards from '../../components/HistoryCards/HistoryCards'
+import BackButton from '../../components/BackButton/BackButton';
 
 function History() {
 	return(
-		<>	<div className='returnText'>
+		<>
+		<BackButton path='/'></BackButton>	
+		<div className='returnText'>
 				<p></p>
 			</div>		
 			<div className='Cards'>

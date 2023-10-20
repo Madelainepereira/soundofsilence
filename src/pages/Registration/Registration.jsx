@@ -98,6 +98,7 @@ export default Registration;*/
 
 import './Registration.css';
 import { useState } from 'react';
+import BackButton from '../../components/BackButton/BackButton';
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -162,6 +163,7 @@ function Registration() {
 
   return (
     <>
+    <BackButton path='/'></BackButton>
       <div className='welcomeText'>
         <h1 className='greetingRegistration'>Bienvenid@</h1>
         <h4 className='textRegistration'>Ingresa los siguientes datos y crea tu cuenta</h4>

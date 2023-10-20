@@ -1,12 +1,19 @@
-import './Footer.css'
+import { Link, useLocation } from 'react-router-dom';
+import './Footer.css';
 
 const Footer = () => {
-    return (
-      <div className="footer">
-        <p>Privacy policy</p>
-        <p>Terms and Conditions</p>
-      </div>
-    );
+  const location = useLocation().pathname;
+
+  if (location === '/PrivacyTerms') {
+    return null; 
   }
-  
-  export default Footer;
+
+  return (
+    <div className="footer">
+      <Link className='link1' to="PrivacyTerms"><p>Privacy policy</p></Link>
+      <Link className='link1' to="PrivacyTerms"><p>Terms and Conditions</p></Link>
+    </div>
+  );
+}
+
+export default Footer;
