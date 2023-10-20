@@ -32,8 +32,13 @@ function Button() {
                     let formData = new FormData();
                     formData.append('blob_data', audioBlob);
 
+                    const token = localStorage.getItem('token'); 
+
                     let response = await fetch('http://localhost:8000/audios', {
                         method: 'POST',
+                        headers:{
+                            'Authorization': `Bearer ${token}`
+                        },
                         body: formData
                     });
 
