@@ -1,10 +1,17 @@
-.main
+.results
 {
-	flex-direction: column;
-	align-items: center;
+	border-radius: 8px;
+    background-color: #F3F2FC;
+    color: #183153;
+    width: 40%;
+    box-shadow: 5px 5px 7px #D5D2F6;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.emptyBoxLR
+.results ul
 {
-	height: 130px;
+	width: 100%;
+	padding: 0;
 }
