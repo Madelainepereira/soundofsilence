@@ -11,7 +11,7 @@ function Card({ children, className }) {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string, // Define la prop className como opcional
+  className: PropTypes.string, 
 };
 
 export default Card;
