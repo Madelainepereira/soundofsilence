@@ -1,3 +1,4 @@
+/* Navbar */
 .navbar {
   background-color: #D5D2F6;
   width: 100%;
@@ -7,7 +8,47 @@
   align-items: center;
 }
 
-.navbarLogo{
+.navbarLogo {
   width: 55px;
-  height: 55px;;
+  height: 55px;
 }
+
+/* Estilos para el menú desplegable (puedes agregar estos estilos solo si es necesario en vistas específicas) */
+.user-menu {
+  position: relative;
+}
+
+.user-avatar {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Para que la imagen sea redonda */
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.user-menu:hover .dropdown-menu {
+  display: block;
+}
+
+/* Estilos para los elementos de la lista en el menú desplegable */
+.dropdown-menu li {
+  padding: 10px;
+  text-align: right;
+}
+
+/* Estilo para el botón de cerrar sesión */
+.dropdown-menu li:last-child {
+  color: #FF0000; /* Color rojo o el color deseado para el botón de cerrar sesión */
+}
+
+/* Añade otros estilos personalizados según tus necesidades */
+

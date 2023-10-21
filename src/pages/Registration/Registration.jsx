@@ -251,7 +251,7 @@ function Registration() {
   />
 </div>
        
-        <button className='registrationButton' type='submit'>
+        <button className='registrationButton' type='submit' path='/Login'>
           Registrar
         </button>
       </form>

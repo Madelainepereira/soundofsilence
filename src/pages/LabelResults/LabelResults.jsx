@@ -29,7 +29,7 @@ fetchPredictions();
 
 	return (
 		<>
-		<BackButton path='/'></BackButton>
+		<BackButton path='/UserView'></BackButton>
 		<section className='results-container'>
 			<div className='results'>
 			<ul>
