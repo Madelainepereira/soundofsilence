@@ -151,6 +151,8 @@ function Registration() {
       if (response.ok) {
         setSuccess(true);
         setError(null);
+        window.location.replace('/Login');
+
       } else {
         setError('Error en el registro');
         setSuccess(false);
@@ -251,7 +253,7 @@ function Registration() {
   />
 </div>
        
-        <button className='registrationButton' type='submit' path='/Login'>
+        <button className='registrationButton' type='submit'>
           Registrar
         </button>
       </form>
