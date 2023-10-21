@@ -30,18 +30,6 @@ fetchPredictions();
 	return (
 		<>
 		<BackButton path='/'></BackButton>
-<<<<<<< HEAD
-	<main className='main'>
-    <div className='emptyBoxLR'></div>
-    <Card className='cardResults'>
-        {results.map((result, index) => (
-            <p key={index}>{`Etiqueta: ${result.label}, Puntuación: ${result.confidence.toFixed(2)}`}</p>
-        ))}
-    </Card>
-</main>
-</>
-
-=======
 		<section className='results-container'>
 			<div className='results'>
 			<ul>
@@ -56,7 +44,6 @@ fetchPredictions();
 			</div>
 		</section>
 		</>
->>>>>>> ab1354ade1cc995d4d4bf0cc5dda8672ec204808
 	);
 }
 export default LabelResults;
