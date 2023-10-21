@@ -27,7 +27,8 @@ fetchPredictions();
 	}, [audioId]);
 
 	return (
-		<section className='results'>
+		<section className='results-container'>
+			<div className='results'>
 			<ul>
 				<li className='results-header'>
 					<p className='results-label'>Etiqueta</p>
@@ -37,6 +38,7 @@ fetchPredictions();
 					<Card key={index} label={result.label} percentage={result.confidence.toFixed(2)}/>
 				)}
 			</ul>
+			</div>
 		</section>
 
 	);
