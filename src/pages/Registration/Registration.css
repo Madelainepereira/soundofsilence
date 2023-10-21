@@ -1,5 +1,4 @@
 .welcomeText
-/*Bienvenid@*/
 {
 	color: #183153;
 	text-align: center;
@@ -20,23 +19,28 @@
 }
 
 .registrationForm
-/*Formulario de registro completo*/
 {
 	background-color: #E4E2F9;
 	display: flex;
 	flex-direction: column;
-	align-items: center
+	align-items: center;
+	margin-bottom: 5%;
 }
-
+#regis {
+	cursor: pointer;
+	text-align: center;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .formGroup
-/*Label+input*/
 {
 	display: flex;
 	flex-direction: column;
 }
 
 .identifier
-/*label*/
 {
 	color:#183153;
 	font-size: 12px;
@@ -44,7 +48,6 @@
 }
 	
 .registrationBox
-/*Casilla de registro (input)*/
 {
     border-radius: 6px;
 	border: 3px solid #183153;
@@ -56,7 +59,6 @@
 }
 
 .registrationButton
-/*Boton de registro*/
 {
 	background-color: #183153;
 	color: #E4E2F9;
