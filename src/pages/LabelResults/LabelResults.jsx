@@ -28,31 +28,30 @@ fetchPredictions();
 	}, [audioId]);
 
 	return (
-<main className='main'>
-    <div className='emptyBoxLR'></div>
-    <Card className="cardResults">
-        {results.map((result, index) => (
-            <p key={index}>{`Etiqueta: ${result.label}, Puntuación: ${result.confidence.toFixed(2)}`}</p>
-        ))}
-    </Card>
-</main>
-
-
 		<>
-		<BackButton path='/'></BackButton>
-		<section className='results-container'>
-			<div className='results'>
-			<ul>
-				<li className='results-header'>
-					<p className='results-label'>Etiqueta</p>
-					<p className='results-percentage'>Puntuación</p>
-				</li>
-				{results.map((result, index) =>
-					<Card key={index} label={result.label} percentage={result.confidence.toFixed(2)}/>
-				)}
-			</ul>
-			</div>
-		</section>
+			<main className='main'>
+				<div className='emptyBoxLR'></div>
+				<Card className="cardResults">
+					{results.map((result, index) => (
+						<p key={index}>{`Etiqueta: ${result.label}, Puntuación: ${result.confidence.toFixed(2)}`}</p>
+					))}
+				</Card>
+			</main>
+	
+			<BackButton path='/'></BackButton>
+			<section className='results-container'>
+				<div className='results'>
+					<ul>
+						<li className='results-header'>
+							<p className='results-label'>Etiqueta</p>
+							<p className='results-percentage'>Puntuación</p>
+						</li>
+						{results.map((result, index) =>
+							<Card key={index} label={result.label} percentage={result.confidence.toFixed(2)}/>
+						)}
+					</ul>
+				</div>
+			</section>
 		</>
 	);
 }
