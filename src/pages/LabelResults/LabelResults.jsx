@@ -29,7 +29,7 @@ fetchPredictions();
 	return (
 <main className='main'>
     <div className='emptyBoxLR'></div>
-    <Card>
+    <Card className="cardResults">
         {results.map((result, index) => (
             <p key={index}>{`Etiqueta: ${result.label}, Puntuación: ${result.confidence.toFixed(2)}`}</p>
         ))}

@@ -35,6 +35,7 @@ function Login()
         if (response.ok) {
           const data = await response.json();
           localStorage.setItem('token', data.token); // Guardar el token en el LocalStorage
+          localStorage.setItem('user_name', formData.username);
           setError(null); // limpiar cualquier error previo.
           navigate("/true");
       } 
@@ -76,6 +77,7 @@ function Login()
                 name='password'
                 value={formData.password}
                 onChange={handleChange}
+                autoComplete='current-password'
                 required
               />
             </div>
