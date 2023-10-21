@@ -1,19 +1,3 @@
-// import './LabelResults.css'
-// import Card from '../../components/Card/Card'
-// import Button from '../../components/Button/Button'
-
-// function LabelResults() {
-// 	return(
-// 		<>
-// 			<main className='main'>
-// 				<div className='emptyBoxLR'></div>
-// 				<Card />
-// 				<Button />
-// 			</main>
-// 		</>
-// 	)
-// }
-// export default LabelResults;
 import './LabelResults.css'
 import Card from '../../components/Card/Card'
 import { useState, useEffect } from 'react';
@@ -46,6 +30,7 @@ fetchPredictions();
 	return (
 		<>
 		<BackButton path='/'></BackButton>
+<<<<<<< HEAD
 	<main className='main'>
     <div className='emptyBoxLR'></div>
     <Card className='cardResults'>
@@ -56,6 +41,22 @@ fetchPredictions();
 </main>
 </>
 
+=======
+		<section className='results-container'>
+			<div className='results'>
+			<ul>
+				<li className='results-header'>
+					<p className='results-label'>Etiqueta</p>
+					<p className='results-percentage'>Puntuación</p>
+				</li>
+				{results.map((result, index) =>
+					<Card key={index} label={result.label} percentage={result.confidence.toFixed(2)}/>
+				)}
+			</ul>
+			</div>
+		</section>
+		</>
+>>>>>>> ab1354ade1cc995d4d4bf0cc5dda8672ec204808
 	);
 }
 export default LabelResults;

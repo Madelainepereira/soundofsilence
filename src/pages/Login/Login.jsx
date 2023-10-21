@@ -33,10 +33,12 @@ function Login()
         });
 
         if (response.ok) {
-            setError(null); // limpiar cualquier error previo.
-            navigate("/true");
-
-        } else {
+          const data = await response.json();
+          localStorage.setItem('token', data.token); // Guardar el token en el LocalStorage
+          setError(null); // limpiar cualquier error previo.
+          navigate("/true");
+      } 
+       else {
             const data = await response.json();
             setError(data.detail); // error -> respuesta servidor
         }

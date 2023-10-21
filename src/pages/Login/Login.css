@@ -1,5 +1,4 @@
 .login-container
-/*div del Login completo*/
 {
 	display: flex;
     flex-direction: column;
@@ -8,7 +7,6 @@
 }
 
 .welcomeTextLogin
-/*Bienvenid@*/
 {
 	background-color: #E4E2F9;
 	color: #183153;
@@ -29,7 +27,6 @@
 }
 
 .loginForm
-/*Formulario de registro*/
 {
 	display: flex;
 	flex-direction: column;
@@ -37,14 +34,12 @@
 }
 
 .registrationLogin
-/*Label+input*/
 {
 	display: flex;
 	flex-direction: column;
 }
 
 .identifierLogin
-/*label*/
 {
 	color: #183153;
     font-size: 14px;
@@ -52,7 +47,6 @@
 }
 
 .dataLogin
-/*Casilla de registro (input)*/
 {
 	border-radius: 6px;
 	border: 3px solid #183153;
@@ -64,7 +58,6 @@
 }
 
 .loginButton
-/*Boton de registro*/
 {
 	background-color: #183153;
 	color: #E4E2F9;

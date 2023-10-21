@@ -1,42 +1,21 @@
-// import PropTypes from 'prop-types';
-// import './Card.css';
-
-// function Card({texto, className}) {
-//   //const { texto, className } = props;
-
-//   return (
-//     <div className="textCard">
-//       <p  className={className}>
-//         {texto}
-//       </p>
-//     </div>
-//   );
-// }
-
-// Card.propTypes = 
-// {
-//   texto: PropTypes.string.isRequired,
-//   className: PropTypes.string, // Define la prop className como opcional
-// };
-
-// export default Card;
-
-// Card.jsx
 import PropTypes from 'prop-types';
 import './Card.css';
 
-function Card({ children, className }) {
+function Card({label, percentage}) 
+{
+
   return (
-    <div className={`textCard ${className || ''}`}>
-      {children}
-    </div>
+    <li className='result'>
+		<p className='result-label'>{label}</p>
+		<p className='result-percentage'>{percentage * 100 + "%"}</p>
+	</li>
   );
 }
 
-Card.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string, // Define la prop className como opcional
+Card.propTypes = 
+{
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number, // Define la prop className como opcional
 };
 
 export default Card;
-
