@@ -36,6 +36,7 @@ function Login()
           const data = await response.json();
           localStorage.setItem('token', data.token); // Guardar el token en el LocalStorage
           localStorage.setItem('user_name', formData.username);
+          localStorage.setItem('user_id', data.user.id)
           setError(null); // limpiar cualquier error previo.
           navigate("/UserView");
       } 
