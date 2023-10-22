@@ -49,7 +49,6 @@ function Registration() {
     responseObject = await dbRequest.userRegister(formDataToSend);
     setSuccess(responseObject.success);
     setError(responseObject.error);
-    window.location.replace('/Login')
   };
 
   return (

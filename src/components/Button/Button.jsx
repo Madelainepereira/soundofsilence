@@ -2,12 +2,14 @@ import './Button.css'
 import recorder from "../../assets/Image_recorder.png";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import dbRequest from '../../services/dbRequest';
 
 function Button() {
     const [mediaRecorder, setMediaRecorder] = useState(null);
     const [audioStream, setAudioStream] = useState(null);
     const [audioUrl, setAudioUrl] = useState(null);
     const navigate = useNavigate();
+    let responseObject;
 
     const startRecording = async () => {
         try {
@@ -27,31 +29,14 @@ function Button() {
                 const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
                 const url = URL.createObjectURL(audioBlob);
                 setAudioUrl(url);
+                let formData = new FormData();
+                formData.append('blob_data', audioBlob);
+                const token = localStorage.getItem('token'); 
                 
-                try {
-                    let formData = new FormData();
-                    formData.append('blob_data', audioBlob);
-
-                    const token = localStorage.getItem('token'); 
-
-                    let response = await fetch('http://localhost:8000/audios', {
-                        method: 'POST',
-                        headers:{
-                            'Authorization': `Bearer ${token}`
-                        },
-                        body: formData
-                    });
-
-                    if (response.ok) {
-                        let data = await response.json();
-                        let audioID = data.id;
-                        navigate(`/LabelResults/${audioID}`); //pasamos el id del audio al componente LabelResults
-                        console.log("Audio enviado para analizar:", data);
-                    } else {
-                        console.error("Error al enviar el audio:", await response.text());
-                    }
-                } catch (error) {
-                    console.error('Error al enviar el audio para analizar:', error);
+                responseObject = await dbRequest.audioRecord(formData, token);
+                if (responseObject.path)
+                {
+                    navigate(responseObject.path);
                 }
             };
 
