@@ -34,6 +34,8 @@ function HistoryCards({ audioGroup }) {
     };
 
     const deleteAudio = async (audioId) => {
+    const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este audio para siempre?");
+    if (!userConfirmed) return;
         try {
             const response = await fetch(`http://localhost:8000/audios/${audioId}`, {
                 method: 'DELETE'
