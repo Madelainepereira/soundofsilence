@@ -83,6 +83,10 @@ After that we need some installations:
 
         python.exe -m pip install --upgrade pip
 
+Finally in order to run the project:
+
+        uvicorn backend.app.main:app --reload 
+
 
 
 # *Learn more about React*  <img width = 50px, height = 50px src="https://github.com/anaencinasd/covid-19-tracker/assets/132446932/ab824237-1db4-47dd-838f-164f652c95f9">
