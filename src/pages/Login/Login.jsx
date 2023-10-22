@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import dbRequest from '../../services/dbRequest';
 import './Login.css';
 import PopUp from '../../components/PopUp/PopUp'; // Asegúrate de importar el componente Popup
 
@@ -12,45 +13,21 @@ function Login() {
   const [error, setError] = useState(null);
   const [showPopUp, setShowPopUp] = useState(false); // Nuevo estado para mostrar el popup
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleClosePopUp = () => {
-    setShowPopUp(false);
-  };
-
-  const handleSubmit = async (e) => {
+  let responseObject;
+	
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData({ ...formData, [name]: value });
+	};
+	
+	const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('http://localhost:8000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user_name: formData.username,
-          password: formData.password,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user_name', formData.username);
-        setError(null);
-        setShowPopUp(false);
-        navigate('/UserView');
-      } else {
-        setError("Credenciales incorrectas");
-        setShowPopUp(true); 
-      }
-    } catch (err) {
-      setError('Error de red o el servidor no está disponible');
-      setShowPopUp(true);
+    responseObject = await dbRequest.userLogin(formData);
+    setError(responseObject.error);
+    if (responseObject.path)
+    {
+      navigate(responseObject.path);
     }
   };
 
