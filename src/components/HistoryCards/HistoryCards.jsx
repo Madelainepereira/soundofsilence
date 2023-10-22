@@ -4,21 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faStop, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
+const API_URL = "http://localhost:8000/audios/";
+
 function HistoryCards({ audioGroup }) {
     const [audioElement, setAudioElement] = useState(null);
 
     const playAudio = async (audioId) => {
         try {
-            const response = await fetch(`http://localhost:8000/audios/${audioId}`);
+            const response = await fetch(API_URL + audioId);
             
-            if (!response.ok) {
-                throw new Error('Failed to fetch audio');
-            }
-
+            if (!response.ok) throw new Error('Failed to fetch audio');
+            
             const audioBlob = await response.blob();
-            const audioUrl = URL.createObjectURL(audioBlob);
+            const newAudioElement = new Audio(URL.createObjectURL(audioBlob));
 
-            const newAudioElement = new Audio(audioUrl);
             setAudioElement(newAudioElement);
             newAudioElement.play();
         } catch (error) {
@@ -27,30 +26,29 @@ function HistoryCards({ audioGroup }) {
     };
 
     const stopAudio = () => {
-        if (audioElement) {
-            audioElement.pause();
-            audioElement.currentTime = 0;  // Vuelve el audio al inicio
-        }
+        if (!audioElement) return;
+        audioElement.pause();
+        audioElement.currentTime = 0;
     };
 
     const deleteAudio = async (audioId) => {
-    const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este audio para siempre?");
-    if (!userConfirmed) return;
+        const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este audio para siempre?");
+        if (!userConfirmed) return;
+
         try {
-            const response = await fetch(`http://localhost:8000/audios/${audioId}`, {
-                method: 'DELETE'
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to delete audio');
-            }
-
-            // Actualización o recarga de la página
+            const response = await fetch(API_URL + audioId, { method: 'DELETE' });
+            if (!response.ok) throw new Error('Failed to delete audio');
             window.location.reload();
         } catch (error) {
             console.error("Error eliminando el audio:", error);
         }
     };
+
+    const renderIcon = (icon, action) => (
+        <figure className={`${icon}-icon`} onClick={action}>
+            <FontAwesomeIcon icon={icon} size="xl" />
+        </figure>
+    );
 
     return (
         <div className='history-card-container'>
@@ -62,15 +60,9 @@ function HistoryCards({ audioGroup }) {
                     </div>
                 ))}
             </div>
-            <figure className='play-icon' onClick={() => playAudio(audioGroup.audio_id)}>
-                <FontAwesomeIcon icon={faPlay} size="xl" />
-            </figure>
-            <figure className='stop-icon' onClick={stopAudio}>
-                <FontAwesomeIcon icon={faStop} size="xl" />
-            </figure>
-            <figure className='delete-icon' onClick={() => deleteAudio(audioGroup.audio_id)}>
-                <FontAwesomeIcon icon={faTrash} size="xl" />
-            </figure>
+            {renderIcon(faPlay, () => playAudio(audioGroup.audio_id))}
+            {renderIcon(faStop, stopAudio)}
+            {renderIcon(faTrash, () => deleteAudio(audioGroup.audio_id))}
         </div>
     );
 }
@@ -84,5 +76,6 @@ HistoryCards.propTypes = {
 };
 
 export default HistoryCards;
+
 
 
