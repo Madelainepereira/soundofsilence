@@ -1,0 +1,24 @@
+.avatar-container {
+    position: relative;
+    display: inline-block;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    right: 0;
+}
+
+.avatar-container:hover .dropdown-menu {
+    display: block;
+}

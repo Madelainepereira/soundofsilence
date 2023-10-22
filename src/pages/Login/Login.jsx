@@ -37,6 +37,7 @@ function Login()
           localStorage.setItem('token', data.token); // Guardar el token en el LocalStorage
           localStorage.setItem('user_name', formData.username);
           localStorage.setItem('user_id', data.user.id)
+          localStorage.setItem('user_avatar_url', data.user.profile_image)
           setError(null); // limpiar cualquier error previo.
           navigate("/UserView");
       } 
