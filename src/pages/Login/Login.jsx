@@ -45,6 +45,7 @@ function Login() {
         setShowPopUp(false);
         navigate('/UserView');
       } else {
+        setError("Credenciales incorrectas");
         setShowPopUp(true); 
       }
     } catch (err) {
