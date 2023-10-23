@@ -7,7 +7,6 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    cursor: pointer;
 }
 
 .dropdown-menu {
@@ -33,12 +32,14 @@
     width: 100px;
     display: block;
     text-align: center;
+    text-decoration: none;
     
 }
 .ddButton:hover {
     background: #D5D2F6;
     color: #183153;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .avatar-container:hover .dropdown-menu {
