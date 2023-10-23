@@ -33,6 +33,7 @@ function Button() {
                 formData.append('blob_data', audioBlob);
                 const token = localStorage.getItem('token'); 
                 
+                console.log(token);
                 responseObject = await dbRequest.audioRecord(formData, token);
                 if (responseObject.path)
                 {

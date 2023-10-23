@@ -64,7 +64,7 @@ class dbRequest
 	
 			if (response.ok) 
 			{
-				const data = response.json();
+				const data = await response.json();
 				localStorage.setItem('token', data.token); // Guardar el token en el LocalStorage
 				localStorage.setItem('user_name', formData.username);
 				responseObject.error = null; // limpiar cualquier error previo.
@@ -73,7 +73,7 @@ class dbRequest
 			} 
 			else 
 			{
-				const data = response.json();
+				const data = await response.json();
 				responseObject.error = data.detail; // error -> respuesta servidor
 				return (responseObject);
 			}
@@ -106,7 +106,7 @@ class dbRequest
 
 			if (response.ok) 
 			{
-				let data = response.json();
+				let data = await response.json();
 
 				responseObject.path = `/LabelResults/${data.id}`; //pasamos el id del audio al componente LabelResults
 				console.log("Audio enviado para analizar:", data);
@@ -137,7 +137,7 @@ class dbRequest
 			{
 				throw new Error('Failed to fetch predictions');
 			}
-			const data = response.json();
+			const data = await response.json();
 			console.log("Data from server:", data);
 			responseObject.results = (data);
 			return (responseObject);
