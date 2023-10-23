@@ -22,6 +22,7 @@ import './History.css';
 import HistoryCards from '../../components/HistoryCards/HistoryCards';
 import BackButton from '../../components/BackButton/BackButton';
 import { useState, useEffect } from 'react';
+import dbRequest from '../../services/dbRequest';
 
 
 function History() {
@@ -29,20 +30,10 @@ function History() {
     const userId = localStorage.getItem('user_id'); 
 
     useEffect(() => {
-        async function fetchAudios() {
-            try {
-                const response = await fetch(`http://localhost:8000/user/${userId}/last_audios`);
-                
-                if (!response.ok) {
-                    throw new Error('Failed to fetch audios');
-                }
-                
-                const data = await response.json();
-				console.log("Data from server:", data);
-                setAudios(data);
-            } catch (error) {
-                console.error("There was an error fetching the audios:", error);
-            }
+        async function fetchAudios() 
+        {
+            const data = dbRequest.fetchAudios(userId);
+            setAudios(data);
         }
 
         fetchAudios();

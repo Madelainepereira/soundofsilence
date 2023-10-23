@@ -3,25 +3,19 @@ import './HistoryCards.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faStop, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-
-const API_URL = "http://localhost:8000/audios/";
+import dbRequest from '../../services/dbRequest';
 
 function HistoryCards({ audioGroup }) {
     const [audioElement, setAudioElement] = useState(null);
 
-    const playAudio = async (audioId) => {
-        try {
-            const response = await fetch(API_URL + audioId);
-            
-            if (!response.ok) throw new Error('Failed to fetch audio');
-            
-            const audioBlob = await response.blob();
-            const newAudioElement = new Audio(URL.createObjectURL(audioBlob));
+    const playAudio = async (audioId) => 
+    {
+        const newAudioElement = await dbRequest.playAudio(audioId);
 
+        if (newAudioElement)
+        {
             setAudioElement(newAudioElement);
             newAudioElement.play();
-        } catch (error) {
-            console.error("Error reproduciendo el audio:", error);
         }
     };
 
@@ -31,17 +25,9 @@ function HistoryCards({ audioGroup }) {
         audioElement.currentTime = 0;
     };
 
-    const deleteAudio = async (audioId) => {
-        const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este audio para siempre?");
-        if (!userConfirmed) return;
-
-        try {
-            const response = await fetch(API_URL + audioId, { method: 'DELETE' });
-            if (!response.ok) throw new Error('Failed to delete audio');
-            window.location.reload();
-        } catch (error) {
-            console.error("Error eliminando el audio:", error);
-        }
+    const deleteAudio = async (audioId) => 
+    {
+        await dbRequest.deleteAudio(audioId);
     };
 
     const renderIcon = (icon, action) => (

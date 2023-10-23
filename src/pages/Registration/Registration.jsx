@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BackButton from '../../components/BackButton/BackButton';
 import PopUp from '../../components/PopUp/PopUp';
 import dbRequest from '../../services/dbRequest';
+import { useNavigate } from 'react-router';
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,8 @@ function Registration() {
   let responseObject;
   const [showPopUp, setShowPopUp] = useState(false);
   const [popUpMessage, setPopUpMessage] = useState('');
+  const [path, setPath] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,10 +57,20 @@ function Registration() {
     responseObject = await dbRequest.userRegister(formDataToSend);
     setSuccess(responseObject.success);
     setError(responseObject.error);
+    setPopUpMessage(responseObject.msg);
+    setShowPopUp(responseObject.show);
+    setPath(responseObject.path);
   };
-  const handleClosePopUp = () => {
-    setShowPopUp(false); 
+
+  const handleClosePopUp = () => 
+  {
+    setShowPopUp(false);
+    if (path)
+    {
+      navigate(path);
+    }
   };
+  
   return (
     <>
     <div className='main-content'>

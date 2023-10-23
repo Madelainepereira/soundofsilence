@@ -7,7 +7,10 @@ class dbRequest
 		const responseObject =
 		{
 			success: '',
-			error: ''
+			error: '',
+			msg: '',
+			show: '',
+			path: ''
 		}
 
 		try 
@@ -22,12 +25,17 @@ class dbRequest
 			{
 				responseObject.success = true;
 				responseObject.error = null;
+				responseObject.msg = 'Registro exitoso';
+				responseObject.show = true;
+				responseObject.path = '/Login';
 				return (responseObject)
 			} 
 			else 
 			{
 				responseObject.success = false;
 				responseObject.error = 'Error en el registro';
+				responseObject.msg = 'Error en el registro';
+				responseObject.show = true;
 				return (responseObject)
 			}
 		}
@@ -35,6 +43,8 @@ class dbRequest
 		{
 			responseObject.success = false;
 			responseObject.error ='Error de red';
+			responseObject.msg ='Error de red';
+			responseObject.show = true;
 			return (responseObject)
 		}
 	}
@@ -123,29 +133,67 @@ class dbRequest
 		}
 	}
 
-	async getLabels(audioId)
+	async fetchAudios(userId)
 	{
-		const responseObject =
-		{
-			results: ''
-		}
 
-		try 
+        try 
 		{
-			const response = await fetch(`${mainUrl}/audios/${audioId}/predictions`);
-			if (!response.ok) 
+			const response = await fetch(`http://localhost:8000/user/${userId}/last_audios`);
+            
+            if (!response.ok) 
 			{
-				throw new Error('Failed to fetch predictions');
-			}
-			const data = await response.json();
+                throw new Error('Failed to fetch audios');
+            }
+            
+            const data = await response.json();
 			console.log("Data from server:", data);
-			responseObject.results = (data);
-			return (responseObject);
-		} 
+            return (data);
+        } 
 		catch (error) 
 		{
-			console.error("There was an error fetching the predictions:", error);
-		}
+            console.error("There was an error fetching the audios:", error);
+        }
+    }
+
+	async playAudio(audioId)
+	{
+        try 
+		{
+            const response = await fetch(`${mainUrl}/audios/${audioId}`);
+            
+            if (!response.ok)
+			{
+				throw new Error('Failed to fetch audio');
+			}
+            const audioBlob = await response.blob();
+            const newAudioElement = new Audio(URL.createObjectURL(audioBlob));
+
+            return (newAudioElement);
+        } 
+		catch (error) 
+		{
+            console.error("Error reproduciendo el audio:", error);
+        }
+    }
+
+	async deleteAudio(audioId)
+	{
+		const userConfirmed = window.confirm("¿Estás seguro de que deseas eliminar este audio para siempre?");
+        if (!userConfirmed) return;
+
+        try 
+		{
+            const response = await fetch(`${mainUrl}/audios/${audioId}`, { method: 'DELETE' });
+            if (!response.ok)
+			{
+				throw new Error('Failed to delete audio');
+			}
+            window.location.reload();
+        }
+		catch (error)
+		{
+            console.error("Error eliminando el audio:", error);
+        }
 	}
 }
 
