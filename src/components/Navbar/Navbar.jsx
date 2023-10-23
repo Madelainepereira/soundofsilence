@@ -14,7 +14,7 @@ function Navbar() {
                     
                         <img className='navbarLogo' src={logo} alt="Logo" />
                     
-                    {(location !== '/login' && location !== '/registration') && <Avatar className='avatar' />}
+                    {(location !== '/Login' && location !== '/Registration' && location !== '/' && location !== '/PrivacyTerms') && <Avatar className='avatar' />}
                 </>
             ) : (
                 <img className='navbarLogo' src={logo} alt="Logo" />

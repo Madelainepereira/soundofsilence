@@ -37,7 +37,6 @@ fetchPredictions();
 					))}
 				</Card>
 			</main>
-	
 			<BackButton path='/'></BackButton>
 			<section className='results-container'>
 				<div className='results'>
