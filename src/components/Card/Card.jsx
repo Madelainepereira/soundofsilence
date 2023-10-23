@@ -15,7 +15,7 @@ function Card({label, percentage = 0})
 Card.propTypes = 
 {
   label: PropTypes.string.isRequired,
-  percentage: PropTypes.number, // Define la prop className como opcional
+  percentage: PropTypes.string, // Define la prop className como opcional
 };
 
 export default Card;
