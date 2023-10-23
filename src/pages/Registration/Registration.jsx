@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /*import './Registration.css'
 import { useState } from 'react';
 
@@ -99,6 +100,7 @@ export default Registration;*/
 import './Registration.css';
 import { useState } from 'react';
 import BackButton from '../../components/BackButton/BackButton';
+import PopUp from '../../components/PopUp/PopUp';
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -113,6 +115,8 @@ function Registration() {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [popUpMessage, setPopUpMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -124,6 +128,8 @@ function Registration() {
 
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
+      setPopUpMessage('Las contraseñas no coinciden'); // Actualizar el mensaje del PopUp
+      setShowPopUp(true);
       return;
     }
 
@@ -151,25 +157,33 @@ function Registration() {
       if (response.ok) {
         setSuccess(true);
         setError(null);
+        setPopUpMessage('Registro exitoso');
+        setShowPopUp(true);
+        window.location.replace('/Login');
       } else {
         setError('Error en el registro');
         setSuccess(false);
+        setPopUpMessage('Error en el registro'); 
+        setShowPopUp(true);
       }
     } catch (error) {
       setError('Error de red');
       setSuccess(false);
+      setPopUpMessage('Error de red'); 
+      setShowPopUp(true);
     }
   };
-
+  const handleClosePopUp = () => {
+    setShowPopUp(false); 
+  };
   return (
     <>
+    <div className='main-content'>
     <BackButton path='/'></BackButton>
       <div className='welcomeText'>
         <h1 className='greetingRegistration'>Bienvenid@</h1>
         <h4 className='textRegistration'>Ingresa los siguientes datos y crea tu cuenta</h4>
       </div>
-      {error && <div className='error-message'>{error}</div>}
-      {success && <div className='success-message'>Registro exitoso</div>}
       <form className='registrationForm' onSubmit={handleSubmit}>
         <div className='formGroup'>
           <label className='identifier'>Nombre</label>
@@ -255,6 +269,10 @@ function Registration() {
           Registrar
         </button>
       </form>
+      {showPopUp && (
+        <PopUp message={popUpMessage} onClose={handleClosePopUp} />
+      )}
+      </div>
     </>
   );
 }

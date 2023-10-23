@@ -65,6 +65,7 @@ function History() {
 
     return(
         <>	
+         <div className='main-content'>
             <BackButton text="Volver al inicio" path='/UserView'></BackButton>	
             <div className='returnText'>
                 <p></p>
@@ -72,6 +73,7 @@ function History() {
             <div className='cards'>
     {groupedAudiosArray.map(audioGroup => <HistoryCards key={audioGroup.audio_id} audioGroup={audioGroup} />)}
 			</div>
+            </div>
         </>
     )
 }

@@ -30,8 +30,8 @@ fetchPredictions();
 	return (
 		<>
 			<main className='main'>
+				<div className='emptyBoxLR'></div>
 			</main>
-	
 			<BackButton path='/'></BackButton>
 			<section className='results-container'>
 				<div className='results'>
