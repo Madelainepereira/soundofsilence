@@ -1,6 +1,7 @@
 import './Registration.css';
 import { useState } from 'react';
 import BackButton from '../../components/BackButton/BackButton';
+import PopUp from '../../components/PopUp/PopUp';
 import dbRequest from '../../services/dbRequest';
 
 function Registration() {
@@ -17,6 +18,8 @@ function Registration() {
   const [success, setSuccess] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
   let responseObject;
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [popUpMessage, setPopUpMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +31,8 @@ function Registration() {
 
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
+      setPopUpMessage('Las contraseñas no coinciden'); // Actualizar el mensaje del PopUp
+      setShowPopUp(true);
       return;
     }
 
@@ -50,16 +55,17 @@ function Registration() {
     setSuccess(responseObject.success);
     setError(responseObject.error);
   };
-
+  const handleClosePopUp = () => {
+    setShowPopUp(false); 
+  };
   return (
     <>
+    <div className='main-content'>
     <BackButton path='/'></BackButton>
       <div className='welcomeText'>
         <h1 className='greetingRegistration'>Bienvenid@</h1>
         <h4 className='textRegistration'>Ingresa los siguientes datos y crea tu cuenta</h4>
       </div>
-      {error && <div className='error-message'>{error}</div>}
-      {success && <div className='success-message'>Registro exitoso</div>}
       <form className='registrationForm' onSubmit={handleSubmit}>
         <div className='formGroup'>
           <label className='identifier'>Nombre</label>
@@ -141,10 +147,14 @@ function Registration() {
   />
 </div>
        
-        <button className='registrationButton' type='submit'>
+        <button className='registrationButton' type='submit' path="/Login">
           Registrar
         </button>
       </form>
+      {showPopUp && (
+        <PopUp message={popUpMessage} onClose={handleClosePopUp} />
+      )}
+      </div>
     </>
   );
 }

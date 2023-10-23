@@ -2,7 +2,7 @@ import './BackButton.css'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const BuackButton = ({ path }) => {
+const BackButton = ({ path }) => {
 
   return (
 	<Link to={path}>
@@ -13,9 +13,9 @@ const BuackButton = ({ path }) => {
   );
 }
 
-BuackButton.propTypes = {
-    text: PropTypes.string.isRequired, 
+BackButton.propTypes = {
+    text: PropTypes.string, 
     path: PropTypes.string.isRequired, 
   }
 
-export default BuackButton;
+export default BackButton;

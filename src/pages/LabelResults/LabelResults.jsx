@@ -25,20 +25,23 @@ function LabelResults() {
 
 	return (
 		<>
-		<BackButton path='/'></BackButton>
-		<section className='results-container'>
-			<div className='results'>
-			<ul>
-				<li className='results-header'>
-					<p className='results-label'>Etiqueta</p>
-					<p className='results-percentage'>Puntuación</p>
-				</li>
-				{results.map((result, index) =>
-					<Card key={index} label={result.label} percentage={result.confidence.toFixed(2)}/>
-				)}
-			</ul>
-			</div>
-		</section>
+			<main className='main'>
+				<div className='emptyBoxLR'></div>
+			</main>
+			<BackButton path='/'></BackButton>
+			<section className='results-container'>
+				<div className='results'>
+					<ul>
+						<li className='results-header'>
+							<p className='results-label'>Etiqueta</p>
+							<p className='results-percentage'>Puntuación</p>
+						</li>
+						{results.map((result, index) =>
+							<Card key={index} label={result.label} percentage={(result.confidence * 100).toFixed(2)}/>
+						)}
+					</ul>
+				</div>
+			</section>
 		</>
 	);
 }
