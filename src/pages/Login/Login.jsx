@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import PopUp from '../../components/PopUp/PopUp'
+import BackButton from '../../components/BackButton/BackButton';
 
 function Login() 
 {
@@ -59,6 +60,7 @@ function Login()
         
 	return(
 		<>
+    <BackButton path='/'></BackButton>
 			<main className='login-container'>
 				<div className='welcomeTextLogin'>
 					<h1 className='greetingLogin'>Bienvenid@</h1>
