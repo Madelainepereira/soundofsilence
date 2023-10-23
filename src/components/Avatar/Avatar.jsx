@@ -19,6 +19,7 @@ function Avatar() {
             <img src={userAvatarUrl} alt="User Avatar" className="user-avatar"/>
             <div className="dropdown-menu">
                 <span>{userName}</span>
+                <Link to="/History"><button>Historial</button></Link>
                 <Link to="/Login"><button onClick={handleLogout}>Cerrar sesión</button></Link>
             </div>
         </div>

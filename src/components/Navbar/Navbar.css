@@ -3,11 +3,17 @@
   width: 100%;
   min-height: 10vh;
   display: flex;
-  justify-content: center;
+  /* justify-content: */
   align-items: center;
 }
 
 .navbarLogo{
   width: 55px;
-  height: 55px;;
+  height: 55px;
+  margin-left: 42%;
+  /* margin: auto; */
+}
+
+.avatar{
+  margin-right: 80%;
 }
