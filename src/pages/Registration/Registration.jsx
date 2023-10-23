@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /*import './Registration.css'
 import { useState } from 'react';
 
@@ -177,6 +178,7 @@ function Registration() {
   };
   return (
     <>
+    <div className='main-content'>
     <BackButton path='/'></BackButton>
       <div className='welcomeText'>
         <h1 className='greetingRegistration'>Bienvenid@</h1>
@@ -270,6 +272,7 @@ function Registration() {
       {showPopUp && (
         <PopUp message={popUpMessage} onClose={handleClosePopUp} />
       )}
+      </div>
     </>
   );
 }

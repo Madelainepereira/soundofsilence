@@ -14,7 +14,7 @@ const BackButton = ({ path }) => {
 }
 
 BackButton.propTypes = {
-    text: PropTypes.string.isRequired, 
+    text: PropTypes.string, 
     path: PropTypes.string.isRequired, 
   }
 

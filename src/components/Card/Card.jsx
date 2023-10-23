@@ -7,7 +7,7 @@ function Card({label, percentage})
   return (
     <li className='result'>
 		<p className='result-label'>{label}</p>
-		<p className='result-percentage'>{percentage * 100 + "%"}</p>
+		<p className='result-percentage'>{percentage + "%"}</p>
 	</li>
   );
 }

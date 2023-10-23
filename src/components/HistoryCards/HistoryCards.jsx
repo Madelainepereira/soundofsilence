@@ -53,16 +53,20 @@ function HistoryCards({ audioGroup }) {
     return (
         <div className='history-card-container'>
             <div className='history-labels'>
+                <ul>
                 {audioGroup.labels.map((label, index) => (
-                    <div key={index}>
-                        <p>{label}</p>
-                        <p>{(audioGroup.confidence[index] * 100).toFixed(0)}%</p>
-                    </div>
+                    <li className='result-container' key={index}>
+                        <p className='label'>{label}</p>
+                        <p className='porcentage'>{(audioGroup.confidence[index] * 100).toFixed(0)}%</p>
+                    </li>
                 ))}
+                </ul>
             </div>
+            <div className='icons-container'>
             {renderIcon(faPlay, () => playAudio(audioGroup.audio_id))}
             {renderIcon(faStop, stopAudio)}
             {renderIcon(faTrash, () => deleteAudio(audioGroup.audio_id))}
+            </div>
         </div>
     );
 }
