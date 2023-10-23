@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import './Card.css';
 
-function Card({label, percentage}) 
+function Card({label, percentage = 0}) 
 {
 
   return (
     <li className='result'>
 		<p className='result-label'>{label}</p>
-		<p className='result-percentage'>{percentage * 100 + "%"}</p>
+		<p className='result-percentage'>{percentage + "%"}</p>
 	</li>
   );
 }
