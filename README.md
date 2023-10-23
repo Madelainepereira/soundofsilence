@@ -81,7 +81,13 @@ After that we need some installations:
 
         pip install PyJWT
 
+        pip install aiofiles
+
         python.exe -m pip install --upgrade pip
+
+Finally in order to run the project:
+
+        uvicorn backend.app.main:app --reload 
 
 
 
