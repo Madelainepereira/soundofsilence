@@ -4,6 +4,8 @@ import './Card.css';
 function Card({label, percentage = 0}) 
 {
 
+
+  
   return (
     <li className='result'>
 		<p className='result-label'>{label}</p>
